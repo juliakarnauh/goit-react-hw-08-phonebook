@@ -12,10 +12,9 @@ export const LoginPage = () => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     const form = e.target
-    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    dispatch(loginThunk({ name, email, password }));
+    dispatch(loginThunk({email, password }));
     form.reset();
   }
   return (
@@ -23,16 +22,6 @@ export const LoginPage = () => {
     <Box m="0px auto" w="400px" bgColor="white" borderRadius='10px' overflow= "hidden" box-shadow="0px 0px 0px rgba(0, 0, 0, 0.2)" >
         <img src='https://static.vecteezy.com/system/resources/previews/005/437/976/original/mountain-forest-and-river-sunset-or-sunrise-landscape-vector.jpg' alt="Decoration Img" width="400" height="150" />
          <Box p="10px 15px" as="form" onSubmit={handleSubmit}>
-          <FormControl>
-            <Input
-              type="text"
-              name="name"
-              w="100%"
-              bgColor="white"
-              placeholder="Name"
-              mb="10px"
-            />
-          </FormControl>
           <FormControl>
             <Input
               type="email"

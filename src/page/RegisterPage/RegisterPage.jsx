@@ -2,10 +2,8 @@ import React from 'react';
 import { FormControl, Input, Button, Box } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import {registerThunk } from 'redux/Auth/authOperations';
-import { Navigate, useLocation } from 'react-router-dom';
 export const RegisterPage = () => {
   const dispatch = useDispatch();
-  const location = useLocation()
   const handleSubmit = e => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -13,7 +11,6 @@ export const RegisterPage = () => {
     const password = e.target.password.value;
     dispatch(registerThunk({ name, email, password }));
     e.target.reset();
-    <Navigate to='/login' state={{ from: location }}/>
   };
   return (
     <Box
